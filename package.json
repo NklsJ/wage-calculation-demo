@@ -11,7 +11,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "flow": "flow",
+    "eslint": "eslint src",
+    "proofread": "yarn flow && yarn eslint",
+    "ci": "yarn proofread && yarn test"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -21,5 +25,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "flow-bin": "^0.97.0"
+  }
 }
