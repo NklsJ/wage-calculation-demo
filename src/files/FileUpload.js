@@ -1,23 +1,21 @@
 // @flow
-import React, {useState} from 'react'
+import React from 'react'
 
-const FileUpload = () => {
+type Props = {
+  onChange: Function,
+  isUploading: boolean,
+}
 
-  const [isUploading, setIsUploading] = useState(false)
-
-  const handleFileUpload = async (event) => {
-    setIsUploading(true)
-
-    setIsUploading(false)
-  }
+const FileUpload = ({onChange, isUploading}: Props) => {
 
   return (
     <div>
       <h3>Upload CSV</h3>
       <input
         type="file"
+        accept=".csv"
         disabled={isUploading}
-        onChange={event => handleFileUpload(event)}
+        onChange={async event => await onChange(event)}
         multiple/>
     </div>
   )
