@@ -1,16 +1,16 @@
 // @flow
 import React, {useState} from 'react'
 import css from './App.module.css'
-import WagesTable from '../wages/components/WagesTable'
+import WagesView from '../wages/components/WagesView'
 import PlaceholderTable from '../wages/components/PlaceholderTable'
 import FileUpload from '../files/FileUpload'
-import calculateWages from '../wages/util/calculateWages'
+import calculateMonthlyWages from '../wages/util/calculateMonthlyWages'
 import parseCSVsToJSON from '../util/parseCSVsToJSON'
 
 const App = () => {
 
   const [isUploading, setIsUploading] = useState(false)
-  const [wageData, setWageData] = useState(null)
+  const [monthlyWages, setMonthlyWages] = useState(null)
 
   const handleFileUpload = async (event) => {
     if (!event.target.files) {
@@ -31,9 +31,9 @@ const App = () => {
     }
 
     // calculate output
-    const calculatedWageData = calculateWages(data)
+    const calculatedMonthlyWages = await calculateMonthlyWages(data)
 
-    setWageData(calculatedWageData)
+    setMonthlyWages(calculatedMonthlyWages)
     setIsUploading(false)
   }
 
@@ -48,12 +48,9 @@ const App = () => {
           isUploading={isUploading}
         />
 
-        {
-          wageData
-            ? <WagesTable
-              wageData={wageData}
-            />
-            : <PlaceholderTable/>
+        {monthlyWages
+          ? <WagesView monthlyWages={monthlyWages} />
+          : <PlaceholderTable/>
         }
 
       </div>
