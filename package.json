@@ -2,6 +2,9 @@
   "name": "wage-calculation-demo",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "flow-bin": "^0.97.0"
+  },
   "dependencies": {
     "moment": "^2.24.0",
     "moment-business-time": "^0.7.1",
@@ -18,7 +21,7 @@
     "flow": "flow",
     "eslint": "eslint src",
     "proofread": "yarn flow && yarn eslint",
-    "ci": "yarn proofread && yarn test"
+    "ci": "yarn proofread && CI=true yarn test --coverage"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -29,7 +32,19 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {
-    "flow-bin": "^0.97.0"
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js}",
+      "!<rootDir>/node_modules/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 30,
+        "functions": 30,
+        "lines": 30,
+        "statements": 30
+      }
+    },
+    "coverageReporters": ["text"]
   }
 }

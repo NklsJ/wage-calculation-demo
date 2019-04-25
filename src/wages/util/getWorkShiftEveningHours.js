@@ -35,6 +35,9 @@ moment.updateLocale('en', {
  * @param {Moment} endTime
  */
 const getWorkShiftEveningHours = (shiftTotalHours: number, startTime: Moment, endTime: Moment): number => {
+  if (!shiftTotalHours || !startTime || !endTime) {
+    return 0
+  }
 
   // First, calculate how many hours of the workshift is done between normal business hours (06:00 - 19:00)
   const hoursDuringBusinessHours = endTime.workingDiff(startTime, 'hours', true)

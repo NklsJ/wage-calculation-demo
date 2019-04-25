@@ -8,6 +8,9 @@ import moment, {type Moment} from 'moment'
  * @param {Moment} endTime
  */
 const getWorkShiftInHours = (startTime: Moment, endTime: Moment): number => {
+  if (!startTime || !endTime) {
+    return 0
+  }
 
   const timeDiff = moment.duration(endTime.diff(startTime))
   const timeDiffInHours = timeDiff.asHours()
