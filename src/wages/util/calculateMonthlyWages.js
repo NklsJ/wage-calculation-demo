@@ -11,6 +11,10 @@ import {type MonthlyWages} from '../types'
  * @param {*} data Raw JSON array from CSV:s
  */
 const calculateMonthlyWages = async (data: any): Promise<MonthlyWages> => {
+  if (!data) {
+    return []
+  }
+
   const monthlyWages = data.reduce((acc, currentItem) => {
 
     const userId = parseInt(currentItem['Person ID'])
@@ -20,7 +24,8 @@ const calculateMonthlyWages = async (data: any): Promise<MonthlyWages> => {
       return acc
     }
 
-    const month = date.month()
+    // Months are 0 indexed. January will be 0, December 11 etc. Add 1 to the number to get real month number
+    const month = date.month() + 1
     const year = date.year()
 
     let monthObject = acc.find(e => (e.month === month && e.year === year))
@@ -80,14 +85,15 @@ const calculateMonthlyWages = async (data: any): Promise<MonthlyWages> => {
 
     const hours = getWorkShiftInHours(startTime, endTime)
     const eveningHours = getWorkShiftEveningHours(hours, startTime, endTime)
-    const overtimeHours = Math.max(0, hours - 8)
 
     day.hours += hours
     day.eveningHours += eveningHours
 
+    const overtimeHours = Math.max(0, day.hours - 8)
+
     // Not really optimal, if person has multiple workshifts per day these
     // will be calculated on every iteration.
-    day.wage = getDayWage(hours, eveningHours, overtimeHours)
+    day.wage = getDayWage(day.hours, day.eveningHours, overtimeHours)
     day.overtimeHours = overtimeHours
 
     return acc

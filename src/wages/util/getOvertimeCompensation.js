@@ -17,7 +17,7 @@ import {
  *
  * @param {number} overtimeHours
  */
-const getOvertimeCompensation = (overtimeHours: number): number => {
+const getOvertimeCompensation = (overtimeHours: number = 0): number => {
 
   // Overtime between 0 and 3 hours
   const paygrade1Hours = 3 - (Math.max(0, 3 - overtimeHours))

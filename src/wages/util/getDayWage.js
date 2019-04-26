@@ -5,7 +5,7 @@ import {
   EVENING_WORK_SALARY,
 } from '../constants'
 
-const getDayWage = (totalHours: number, eveningHours: number, overtimeHours: number): number => {
+const getDayWage = (totalHours: number = 0, eveningHours: number = 0, overtimeHours: number = 0): number => {
 
   const regularWage = (totalHours - overtimeHours) * BASE_SALARY
 
