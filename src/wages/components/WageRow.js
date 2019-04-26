@@ -18,7 +18,7 @@ const WageRow = ({worker}: Props) => {
       <td><span>V</span></td>
       <td>{worker.id.toString()}</td>
       <td>{worker.fullname}</td>
-      <td>{`$${totalSalary}`}</td>
+      <td>{`$${totalSalary.toFixed(2)}`}</td>
     </tr>
   )
 }

@@ -10,6 +10,7 @@
     "react-test-renderer": "^16.8.6"
   },
   "dependencies": {
+    "ajv": "^6.10.0",
     "moment": "^2.24.0",
     "moment-business-time": "^0.7.1",
     "papaparse": "^4.6.3",

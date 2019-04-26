@@ -1,5 +1,6 @@
 // @flow
 import readFileAsync from './readFileAsync'
+import validateJSON from './validateJSON'
 import {type JsonData} from '../types'
 
 type R = Array<JsonData>
@@ -23,6 +24,16 @@ const parseCSVsToJSON = async (files: Array<File>): Promise<R> => {
 
   // Flatten the nested array before returning
   const flatArray = [].concat.apply([], result)
+
+  if (!flatArray || flatArray.legth < 1) {
+    throw new Error('No data found.')
+  }
+
+  const {isValid, message} = validateJSON(flatArray)
+
+  if (!isValid) {
+    throw new Error(message)
+  }
 
   return flatArray
 }

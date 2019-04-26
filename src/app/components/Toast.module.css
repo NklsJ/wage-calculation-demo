@@ -1,0 +1,30 @@
+
+.toast {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border: 1px solid;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.notice {
+  background: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+.notice p {
+  color: #0c5460;
+}
+
+
+.error {
+  background: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.error p {
+  color: #721c24;
+}
