@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "flow-bin": "^0.97.0"
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "enzyme-to-json": "^3.3.5",
+    "flow-bin": "^0.97.0",
+    "react-test-renderer": "^16.8.6"
   },
   "dependencies": {
     "moment": "^2.24.0",
@@ -35,7 +39,8 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js}",
-      "!<rootDir>/node_modules/"
+      "!<rootDir>/node_modules/",
+      "!src/serviceWorker.js"
     ],
     "coverageThreshold": {
       "global": {
@@ -45,6 +50,11 @@
         "statements": 50
       }
     },
-    "coverageReporters": ["text"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "coverageReporters": [
+      "text"
+    ]
   }
 }

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileUpload component:  Should render correctly 1`] = `
+<div>
+  <h3>
+    Upload CSV
+  </h3>
+  <input
+    accept=".csv"
+    disabled={false}
+    multiple={true}
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`FileUpload component:  Should show input as disabled if isUploading is true 1`] = `
+<div>
+  <h3>
+    Upload CSV
+  </h3>
+  <input
+    accept=".csv"
+    disabled={true}
+    multiple={true}
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
