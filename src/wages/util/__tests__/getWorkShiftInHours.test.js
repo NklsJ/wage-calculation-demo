@@ -3,7 +3,7 @@ import getWorkShiftInHours from '../getWorkShiftInHours'
 
 describe('getWorkShiftInHours: ', () => {
 
-  it('should return return empty if parameters not set', () => {
+  it('should return empty if parameters not set', () => {
     const result = getWorkShiftInHours()
     expect(result).toEqual(0)
   })
