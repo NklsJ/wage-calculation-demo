@@ -1,3 +1,4 @@
 exclude_patterns:
 - "**/__tests__/"
 - "**/__mocks__/"
+- "src/serviceWorker.js"
