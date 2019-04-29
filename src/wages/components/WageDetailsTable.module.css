@@ -1,0 +1,37 @@
+
+.wageDetailsTable {
+  display: none;
+  padding: 0px;
+}
+
+.wageDetailsTable.visible {
+  display: grid;
+}
+
+.wageDetailsTable .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.wageDetailsTable .row p:nth-child(5) {
+  text-align: right;
+}
+
+.wageDetailsTable .row.footer {
+  background-color: #fff;
+  border-top: 1px solid #333;
+}
+
+.wageDetailsTable p {
+  margin: 0;
+  padding: 5px 10px;
+}
+
+.wageDetailsTable .row.header p,
+.wageDetailsTable .row.footer p {
+  font-weight: bold;
+}
+
+.wageDetailsTable div:nth-child(odd) {
+  background: #efefef;
+}

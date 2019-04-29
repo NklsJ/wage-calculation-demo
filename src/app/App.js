@@ -5,21 +5,18 @@ import css from './App.module.css'
 import Toast from './components/Toast'
 import Header from './components/Header'
 import WagesView from '../wages/components/WagesView'
-import PlaceholderTable from '../wages/components/PlaceholderTable'
 import FileUpload from '../files/FileUpload'
 
 import calculateMonthlyWages from '../wages/util/calculateMonthlyWages'
 import parseCSVsToJSON from '../files/util/parseCSVsToJSON'
 
+import useToast from './hooks/useToast'
+
 const App = () => {
 
-  const [toastMessage, setToastMessage] = useState(null)
   const [isUploading, setIsUploading] = useState(false)
   const [monthlyWages, setMonthlyWages] = useState(null)
-
-  const clearToast = () => {
-    setToastMessage(null)
-  }
+  const [toastMessage, setToastMessage] = useToast(null)
 
   const handleFileUpload = async (event) => {
     if (!event.target.files) {
@@ -56,12 +53,11 @@ const App = () => {
         />
 
         {monthlyWages
-          ? <WagesView monthlyWages={monthlyWages} />
-          : <PlaceholderTable/>
+          && <WagesView monthlyWages={monthlyWages} />
         }
 
         {toastMessage
-          && <Toast message={toastMessage} handleCloseClick={() => clearToast()}/>
+          && <Toast message={toastMessage} handleCloseClick={() => setToastMessage(null)}/>
         }
       </div>
     </div>

@@ -1,12 +1,10 @@
 // @flow
 import React from 'react'
 import css from './Toast.module.css'
+import {type ToastMessage} from '../types'
 
 type Props = {
-  message: {
-    type: 'error' | 'notice',
-    text: string,
-  },
+  message: ToastMessage,
   handleCloseClick: Function,
 }
 

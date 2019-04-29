@@ -10,23 +10,21 @@ type Props = {
 
 const WagesTable = ({workers}: Props) => {
   return (
-    <table className={css.wageTable}>
-      <tbody>
-        {workers.sort((a, b) => a.id - b.id)
-          .map((item, index) => {
+    <div className={css.wageTable}>
+      {workers.sort((a, b) => a.id - b.id)
+        .map((item, index) => {
 
-            if (
-              !item.id ||
+          if (
+            !item.id ||
               !item.fullname ||
               !item.days
-            ) {
-              return null
-            }
+          ) {
+            return null
+          }
 
-            return <WageRow key={index} worker={item}/>
-          })}
-      </tbody>
-    </table>
+          return <WageRow key={index} worker={item}/>
+        })}
+    </div>
   )
 }
 

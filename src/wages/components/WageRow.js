@@ -1,5 +1,7 @@
 // @flow
-import React from 'react'
+import React, {useState, Fragment} from 'react'
+import WageHeader from './WageHeader'
+import WageDetailsTable from './WageDetailsTable'
 import {type Worker} from '../types'
 
 type Props = {
@@ -8,18 +10,25 @@ type Props = {
 
 const WageRow = ({worker}: Props) => {
 
-  const totalSalary = worker.days.reduce((acc, currentItem) => {
+  const [detailsTableIsVisible, setDetailsTableIsVisible] = useState(false)
 
+  const toggleDetailsTable = () => setDetailsTableIsVisible(!detailsTableIsVisible)
+
+  const totalSalary = worker.days.reduce((acc, currentItem) => {
     return parseFloat((acc + currentItem.wage).toFixed(2))
   }, 0)
 
   return (
-    <tr>
-      <td><span>V</span></td>
-      <td>{worker.id.toString()}</td>
-      <td>{worker.fullname}</td>
-      <td>{`$${totalSalary.toFixed(2)}`}</td>
-    </tr>
+    <Fragment>
+      <WageHeader
+        toggleDetailsTable={() => toggleDetailsTable()}
+        worker={worker}
+        totalWage={`$${totalSalary.toFixed(2)}`}/>
+      <WageDetailsTable
+        isVisible={detailsTableIsVisible}
+        days={worker.days}
+        totalWage={`$${totalSalary.toFixed(2)}`}/>
+    </Fragment>
   )
 }
 
