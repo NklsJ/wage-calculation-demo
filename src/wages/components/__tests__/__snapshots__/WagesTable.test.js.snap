@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WagesTable component:  Should render correctly 1`] = `
+<div
+  className="wageTable"
+>
+  <WageRow
+    key="0"
+    worker={
+      Object {
+        "days": Array [
+          Object {
+            "date": "1.1.2015",
+            "eveningHours": 0,
+            "hours": 8,
+            "overtimeHours": 0,
+            "wage": 34,
+          },
+          Object {
+            "date": "2.1.2015",
+            "eveningHours": 0,
+            "hours": 10,
+            "overtimeHours": 2,
+            "wage": 44.63,
+          },
+        ],
+        "fullname": "Foo Bar",
+        "id": 1,
+      }
+    }
+  />
+  <WageRow
+    key="1"
+    worker={
+      Object {
+        "days": Array [
+          Object {
+            "date": "1.1.2015",
+            "eveningHours": 0,
+            "hours": 8,
+            "overtimeHours": 0,
+            "wage": 34,
+          },
+          Object {
+            "date": "2.1.2015",
+            "eveningHours": 6,
+            "hours": 10,
+            "overtimeHours": 2,
+            "wage": 52.13,
+          },
+        ],
+        "fullname": "Bar Baz",
+        "id": 2,
+      }
+    }
+  />
+  <WageRow
+    key="2"
+    worker={
+      Object {
+        "days": Array [
+          Object {
+            "date": "1.1.2015",
+            "eveningHours": 2,
+            "hours": 12,
+            "overtimeHours": 4,
+            "wage": 58.81,
+          },
+          Object {
+            "date": "3.1.2015",
+            "eveningHours": 8,
+            "hours": 12,
+            "overtimeHours": 4,
+            "wage": 66.31,
+          },
+        ],
+        "fullname": "Asd Das",
+        "id": 3,
+      }
+    }
+  />
+</div>
+`;
