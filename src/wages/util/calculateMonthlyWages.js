@@ -1,5 +1,6 @@
 // @flow
 import moment from 'moment'
+import getFullTimestamps from './getFullTimestamps'
 import getWorkShiftInHours from './getWorkShiftInHours'
 import getWorkShiftEveningHours from './getWorkShiftEveningHours'
 import getDayWage from './getDayWage'
@@ -19,10 +20,6 @@ const calculateMonthlyWages = async (data: any): Promise<MonthlyWages> => {
 
     const userId = parseInt(currentItem['Person ID'])
     const date = moment(currentItem['Date'], 'DD.MM.YYYY')
-
-    if (!date || !userId) {
-      return acc
-    }
 
     // Months are 0 indexed. January will be 0, December 11 etc. Add 1 to the number to get real month number
     const month = date.month() + 1
@@ -61,27 +58,12 @@ const calculateMonthlyWages = async (data: any): Promise<MonthlyWages> => {
         hours: 0,
         eveningHours: 0,
         overtimeHours: 0,
-        shifts: [],
       }
 
       worker.days.push(day)
     }
 
-    day.shifts.push({start: currentItem['Start'], end: currentItem['End']})
-
-    const startTime = moment(`${currentItem['Date']} ${currentItem['Start']}`, 'DD.MM.YYYY HH:mm:ss')
-    const endTime = moment(`${currentItem['Date']} ${currentItem['End']}`, 'DD.MM.YYYY HH:mm:ss')
-
-    /**
-     * If endTime is before startTime we need to add one day
-     * to endTime.
-     *
-     * This is because the following input is possible:
-     * ID: 1, Name: Foo Bar: Date: 1.1.2019, Start: 23:00, End: 02:00
-     */
-    if (endTime < startTime) {
-      endTime.add(1, 'days')
-    }
+    const {startTime, endTime} = getFullTimestamps(currentItem['Date'], currentItem['Start'], currentItem['End'])
 
     const hours = getWorkShiftInHours(startTime, endTime)
     const eveningHours = getWorkShiftEveningHours(hours, startTime, endTime)
