@@ -56,7 +56,4 @@ export default [
     'Start': '23:00',
     'End': '10:00',
   },
-  {
-
-  },
 ]

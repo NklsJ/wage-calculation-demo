@@ -8,7 +8,7 @@ type R = {
 
 const getFullTimestamps = (date: string, start: string, end: string): R => {
 
-  const startTime = moment(`${date} ${end}`, 'DD.MM.YYYY HH:mm:ss')
+  const startTime = moment(`${date} ${start}`, 'DD.MM.YYYY HH:mm:ss')
   const endTime = moment(`${date} ${end}`, 'DD.MM.YYYY HH:mm:ss')
 
   /**

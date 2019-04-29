@@ -13,12 +13,6 @@ export default [
             eveningHours: 0,
             hours: 8,
             overtimeHours: 0,
-            shifts: [
-              {
-                start: '8:00',
-                end: '16:00',
-              },
-            ],
             wage: 34,
           },
           {
@@ -26,16 +20,6 @@ export default [
             eveningHours: 0,
             hours: 10,
             overtimeHours: 2,
-            shifts: [
-              {
-                start: '6:00',
-                end: '10:00',
-              },
-              {
-                start: '12:00',
-                end: '18:00',
-              },
-            ],
             wage: 44.63,
           },
         ],
@@ -49,12 +33,6 @@ export default [
             eveningHours: 0,
             hours: 8,
             overtimeHours: 0,
-            shifts: [
-              {
-                start: '8:00',
-                end: '16:00',
-              },
-            ],
             wage: 34,
           },
           {
@@ -62,12 +40,6 @@ export default [
             eveningHours: 6,
             hours: 10,
             overtimeHours: 2,
-            shifts: [
-              {
-                start: '00:00',
-                end: '10:00',
-              },
-            ],
             wage: 52.13,
           },
         ],
@@ -81,12 +53,6 @@ export default [
             eveningHours: 2,
             hours: 12,
             overtimeHours: 4,
-            shifts: [
-              {
-                start: '4:00',
-                end: '16:00',
-              },
-            ],
             wage: 58.81,
           },
           {
@@ -94,16 +60,6 @@ export default [
             eveningHours: 8,
             hours: 12,
             overtimeHours: 4,
-            shifts: [
-              {
-                start: '20:00',
-                end: '21:00',
-              },
-              {
-                start: '23:00',
-                end: '10:00',
-              },
-            ],
             wage: 66.31,
           },
         ],
