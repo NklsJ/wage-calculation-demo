@@ -2,3 +2,8 @@ exclude_patterns:
 - "**/__tests__/"
 - "**/__mocks__/"
 - "src/serviceWorker.js"
+
+checks:
+  method-lines:
+      config:
+        threshold: 50
