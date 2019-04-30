@@ -23,7 +23,8 @@ const WageRow = ({worker}: Props) => {
       <WageHeader
         toggleDetailsTable={() => toggleDetailsTable()}
         worker={worker}
-        totalWage={`$${totalSalary.toFixed(2)}`}/>
+        totalWage={`$${totalSalary.toFixed(2)}`}
+        detailsTableIsVisible={detailsTableIsVisible}/>
       <WageDetailsTable
         isVisible={detailsTableIsVisible}
         days={worker.days}

@@ -2,6 +2,7 @@
 .wageHeader {
   display: grid;
   grid-template-columns: 0.1fr 0.1fr 1fr 1fr;
+  align-items: center;
 }
 
 .wageHeader div {
@@ -25,4 +26,24 @@
   font-size: 18px;
   margin: 0px;
   padding: 0px;
+}
+
+.toggleButton {
+  display: block;
+  transition: all 0.05s ease-in-out;
+  transform: rotate(-90deg);
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: 1px solid #efefef;
+  outline: 0;
+  cursor: pointer;
+}
+
+.toggleButton:hover {
+  background-color: #f0f0f0;
+}
+
+.toggleButton.toggled {
+  transform: rotate(0deg);
 }
