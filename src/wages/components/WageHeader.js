@@ -20,7 +20,7 @@ const WageHeader = ({toggleDetailsTable, worker, totalWage, detailsTableIsVisibl
           className={[css.toggleButton ,detailsTableIsVisible && css.toggled].join(' ')}
           onClick={() => toggleDetailsTable()}>v</span>
       </div>
-      <div><p>{worker.id.toString()}</p></div>
+      <div className={css.idColumn}><p>{worker.id.toString()}</p></div>
       <div><p>{worker.fullname}</p></div>
       <div><p>{totalWage}</p></div>
     </div>

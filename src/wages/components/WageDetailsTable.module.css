@@ -13,7 +13,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.wageDetailsTable .row p:nth-child(5) {
+.wageDetailsTable .row p:last-of-type {
   text-align: right;
 }
 
@@ -34,4 +34,19 @@
 
 .wageDetailsTable div:nth-child(odd) {
   background: #efefef;
+}
+
+@media(max-width: 500px) {
+  .wageDetailsTable .row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .wageDetailsTable .row p {
+    display: none;
+  }
+
+  .wageDetailsTable .row p:first-of-type,
+  .wageDetailsTable .row p:last-of-type {
+    display: inline-block;
+  }
 }

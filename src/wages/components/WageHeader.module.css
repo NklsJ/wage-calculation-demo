@@ -29,7 +29,7 @@
 }
 
 .toggleButton {
-  display: block;
+  display: inline-block;
   transition: all 0.05s ease-in-out;
   transform: rotate(-90deg);
   font-size: 16px;
@@ -46,4 +46,14 @@
 
 .toggleButton.toggled {
   transform: rotate(0deg);
+}
+
+@media(max-width: 500px) {
+  .wageHeader {
+    grid-template-columns: 0.5fr 1fr 1fr;
+  }
+
+  .wageHeader > .idColumn {
+    display: none;
+  }
 }
