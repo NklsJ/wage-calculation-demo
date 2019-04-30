@@ -4,7 +4,7 @@ import css from './App.module.css'
 
 import Toast from './components/Toast'
 import Header from './components/Header'
-import WagesView from '../wages/components/WagesView'
+import WagesView from '../wages/WagesView'
 import FileUpload from '../files/FileUpload'
 
 import calculateMonthlyWages from '../wages/util/calculateMonthlyWages'

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
-import WagesTable from './WagesTable'
-import {type MonthlyWages} from '../types'
+import WagesTable from './components/WagesTable'
+import {type MonthlyWages} from './types'
 
 type Props = {
   monthlyWages: MonthlyWages,
